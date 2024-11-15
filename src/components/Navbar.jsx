@@ -7,9 +7,12 @@
  */
 
 import { useRef } from "react";
-const Navbar = () => {
+import PropTypes from "prop-types";
+
+const Navbar = ({navOpen}) => {
 
     const lastActiveLink = useRef();
+    const activeBox = useRef();
     const navItems = [
         {
           label: 'Home',
@@ -40,7 +43,7 @@ const Navbar = () => {
       ];
 
     return (
-        <nav className={'navbar'}>
+        <nav className={'navbar' + (navOpen ? 'active' : '')}>
             {
                 navItems.map(({ label, link, className, ref }, key) => (
                         <a
@@ -54,7 +57,12 @@ const Navbar = () => {
                         </a>
                     ))
             }
+            <div className="active-box" ref={activeBox}></div>
         </nav>
     )
+}
+
+Navbar.PropTypes = {
+    navOpen: PropTypes.bool.isRequired
 }
 export default Navbar;
