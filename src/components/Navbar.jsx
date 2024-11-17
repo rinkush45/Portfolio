@@ -18,9 +18,9 @@ const Navbar = ({navOpen}) => {
       console.log(lastActiveLink.current)
       console.log(activeBox.current)
       activeBox.current.style.top = lastActiveLink.current.offsetTop + 'px';
-      activeBox.current.style.top = lastActiveLink.current.offsetLeft + 'px';
-      activeBox.current.style.top = lastActiveLink.current.offsetWidth + 'px';
-      activeBox.current.style.top = lastActiveLink.current.offsetHeight + 'px';
+      activeBox.current.style.left = lastActiveLink.current.offsetLeft + 'px';
+      activeBox.current.style.width = lastActiveLink.current.offsetWidth + 'px';
+      activeBox.current.style.height = lastActiveLink.current.offsetHeight + 'px';
 
     }
     useEffect(initActiveBox, []);
